@@ -1,0 +1,12 @@
+certifi==2019.3.9
+dj-database-url==0.4.2
+Django==2.2
+django-bootstrap3==11.0.0
+gunicorn==19.9.0
+pystache==0.5.4
+pytz==2019.1
+sqlparse==0.3.0
+static==1.1.1
+whitenoise==4.1.2
+wincertstore==0.2
+psycopy2>=2.6.1

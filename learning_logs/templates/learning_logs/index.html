@@ -1,0 +1,18 @@
+{% extends "learning_logs/base.html" %}
+
+{% block header %}
+<div class="jumbotron">
+<h1> Learning Log helps to monitor learnig progress.</h>
+</div>
+{% endblock header %}
+
+{% block content %}
+<h2>
+Enter <a href="{% url 'learning_logs:topics' %}">Topics</a>, to display Python
+and Machine Learning notes.
+</h>
+<h2>
+<a href="{% url 'users:register' %}">Register your account</a>, to start using 
+the application and create your learning topics.
+</h>
+{% endblock content %}
