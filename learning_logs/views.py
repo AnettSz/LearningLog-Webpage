@@ -68,24 +68,25 @@ def new_entry(request, topic_id):
 
 @login_required
 def edit_entry(request, entry_id):
-    """Editig existing entry"""
+    """Edit an existing entry."""
     entry = Entry.objects.get(id=entry_id)
     topic = entry.topic
-    
     if topic.owner != request.user:
         raise Http404
+    
     if request.method != 'POST':
-        #No info added, create empty form
+        # Initial request; pre-fill form with the current entry.
         form = EntryForm(instance=entry)
     else:
-        #Data provided with POST
+        # POST data submitted; process data.
         form = EntryForm(instance=entry, data=request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect(reverse('learning_logs:topic', args=[topic_id]))
-    context = {'entry':entry, 'topic': topic, 'form': form}    
+            return HttpResponseRedirect(reverse('learning_logs:topic',
+                                        args=[topic.id]))
+    
+    context = {'entry': entry, 'topic': topic, 'form': form}
     return render(request, 'learning_logs/edit_entry.html', context)
-
 
 
 
