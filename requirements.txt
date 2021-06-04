@@ -1,6 +1,6 @@
 certifi==2019.3.9
 dj-database-url==0.4.2
-Django==2.2
+Django==2.2.21
 django-bootstrap3==11.0.0
 gunicorn==19.9.0
 pystache==0.5.4
